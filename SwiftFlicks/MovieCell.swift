@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class MovieCell: UITableViewCell {
 
@@ -22,7 +24,12 @@ class MovieCell: UITableViewCell {
     func configureView() {
         if let movie = model {
             titleLabel.text = movie.title
-            
+            if let moviePoster = movie.posterURL {
+                posterImageView.af_setImage(withURL: moviePoster) // downloads in background
+            } else {
+                posterImageView.image = Image(named: "NoPosterImage")
+            }
+            posterImageView.sizeToFit()
         }
     }
     
