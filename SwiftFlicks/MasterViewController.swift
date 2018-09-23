@@ -23,6 +23,8 @@ class MasterViewController: UITableViewController {
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
         
+        movieSearchBar.delegate = self
+        
         NetworkManager.shared.moviesNowPlaying(completion: { (movies) in
             self.objects = movies
             self.tableView.reloadData()
@@ -74,6 +76,9 @@ class MasterViewController: UITableViewController {
 
 extension MasterViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        // look up movies
+        NetworkManager.shared.moviesSearched(matching: searchText, completion: { (movies) in
+            self.objects = movies
+            self.tableView.reloadData()
+        })
     }
 }

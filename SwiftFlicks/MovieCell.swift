@@ -27,7 +27,8 @@ class MovieCell: UITableViewCell {
             if let moviePoster = movie.posterURL {
                 posterImageView.af_setImage(withURL: moviePoster) // downloads in background
             } else {
-                posterImageView.image = Image(named: "NoPosterImage")
+                let noImage = Image(named: "NoPosterImage")
+                posterImageView.image = noImage
             }
             posterImageView.sizeToFit()
         }
