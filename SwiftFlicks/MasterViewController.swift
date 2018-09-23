@@ -10,6 +10,8 @@ import UIKit
 
 class MasterViewController: UITableViewController {
 
+    @IBOutlet weak var movieSearchBar: UISearchBar!
+    
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
 
@@ -85,6 +87,10 @@ class MasterViewController: UITableViewController {
         }
     }
 
-
 }
 
+extension MasterViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // look up movies
+    }
+}
