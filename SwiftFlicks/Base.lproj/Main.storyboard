@@ -33,7 +33,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
                                 <rect key="frame" x="20" y="323.5" width="335" height="20.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -121,6 +121,7 @@
                                 <connections>
                                     <outlet property="posterImageView" destination="kir-ir-ox6" id="JMY-M0-C2A"/>
                                     <outlet property="titleLabel" destination="l8f-v9-CqQ" id="eoC-9o-XHN"/>
+                                    <segue destination="vC3-pB-5Vb" kind="show" identifier="showDetail" id="fXE-pu-HqW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -156,4 +157,7 @@
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="fXE-pu-HqW"/>
+    </inferredMetricsTieBreakers>
 </document>
