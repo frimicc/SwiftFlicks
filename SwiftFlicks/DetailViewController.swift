@@ -28,9 +28,8 @@ class DetailViewController: UIViewController {
         configureView()
     }
 
-    var detailItem: NSDate? {
+    var detailItem: MovieModel? {
         didSet {
-            // Update the view.
             configureView()
         }
     }

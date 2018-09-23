@@ -15,8 +15,8 @@ struct MovieModel {
     var backgroundURL: URL?
     var searchTitle: String
     
-    init(_ dict: Dictionary<String, String>) {
-        if let title = dict["original_title"] {
+    init(_ dict: Dictionary<String, Any>) {
+        if let title = dict["original_title"] as? String {
             self.title = title
             self.searchTitle = MovieModel.createSearchTitle(from: title)
         } else {
@@ -24,13 +24,13 @@ struct MovieModel {
             self.searchTitle = "None"
         }
         
-        if let description = dict["overview"] {
+        if let description = dict["overview"] as? String {
             self.description = description
         } else {
             self.description = "No description"
         }
         
-        if let posterPath = dict["poster_path"] {
+        if let posterPath = dict["poster_path"] as? String {
             let fullPosterUrl = "https://image.tmdb.org/t/p/w45" + posterPath
             posterURL = URL(string: fullPosterUrl)
             let fullBackgroundUrl = "https://image.tmdb.org/t/p/w342" + posterPath
