@@ -15,7 +15,6 @@ class MasterViewController: UITableViewController {
     var detailViewController: DetailViewController? = nil
     var objects = [MovieModel]()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         if let split = splitViewController {
@@ -26,8 +25,10 @@ class MasterViewController: UITableViewController {
         movieSearchBar.delegate = self
         
         NetworkManager.shared.moviesNowPlaying(completion: { (movies) in
+            self.title = "Now Playing"
             self.objects = movies
             self.tableView.reloadData()
+            self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
         })
     }
 
@@ -35,7 +36,7 @@ class MasterViewController: UITableViewController {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
     }
-
+    
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -77,6 +78,7 @@ class MasterViewController: UITableViewController {
 extension MasterViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         NetworkManager.shared.moviesSearched(matching: searchText, completion: { (movies) in
+            self.title = "Movies for '" + searchText + "'"
             self.objects = movies
             self.tableView.reloadData()
         })

@@ -23,6 +23,7 @@ class DetailViewController: UIViewController {
         if let detail = detailItem {
             if let label = titleLabel {
                 label.text = detail.title
+                self.title = detail.title
             }
             if let descriptionTV = descriptionTextView {
                 descriptionTV.text = detail.description
