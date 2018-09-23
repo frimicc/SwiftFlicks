@@ -12,12 +12,11 @@ import AlamofireImage
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var scroller: UIScrollView!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-
+    @IBOutlet weak var descriptionTextView: UITextView!
+    
 
     func configureView() {
         // Update the user interface for the detail item.
@@ -25,8 +24,8 @@ class DetailViewController: UIViewController {
             if let label = titleLabel {
                 label.text = detail.title
             }
-            if let label = detailDescriptionLabel {
-                label.text = detail.description
+            if let descriptionTV = descriptionTextView {
+                descriptionTV.text = detail.description
             }
             if let bgImageView = backgroundImageView {
                 if let bgURL = detail.backgroundURL {
@@ -36,9 +35,7 @@ class DetailViewController: UIViewController {
                 }
             }
             if let card = cardView {
-                detailDescriptionLabel.sizeToFit()
                 card.sizeToFit()
-                scroller.sizeToFit()
             }
         }
     }
