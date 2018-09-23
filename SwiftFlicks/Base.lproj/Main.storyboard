@@ -36,13 +36,41 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tsb-wb-qVD" userLabel="Background Image View">
                                 <rect key="frame" x="0.0" y="32" width="375" height="667"/>
                             </imageView>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
-                                <rect key="frame" x="20" y="323.5" width="335" height="20.5"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A6p-89-0Bf">
+                                <rect key="frame" x="24" y="389.5" width="375" height="301.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q9J-5F-jfh" userLabel="Card View">
+                                        <rect key="frame" x="67" y="86.5" width="240" height="128"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAr-8U-AuE" userLabel="Title">
+                                                <rect key="frame" x="8" y="8" width="88" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="RNl-Lc-0MZ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4q-9n-ckN">
+                                                <rect key="frame" x="8" y="40" width="88" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="nAr-8U-AuE" secondAttribute="trailing" constant="8" id="0Zb-yH-Bdz"/>
+                                            <constraint firstAttribute="trailing" secondItem="g4q-9n-ckN" secondAttribute="trailing" constant="8" id="VB1-rA-zn3"/>
+                                            <constraint firstItem="g4q-9n-ckN" firstAttribute="top" secondItem="nAr-8U-AuE" secondAttribute="bottom" constant="8" id="ZuT-Kf-BJ1"/>
+                                            <constraint firstAttribute="bottom" secondItem="g4q-9n-ckN" secondAttribute="bottom" constant="8" id="eZc-HO-8Ye"/>
+                                            <constraint firstItem="nAr-8U-AuE" firstAttribute="top" secondItem="q9J-5F-jfh" secondAttribute="top" constant="8" id="mYZ-L0-oVv"/>
+                                            <constraint firstItem="nAr-8U-AuE" firstAttribute="leading" secondItem="q9J-5F-jfh" secondAttribute="leading" constant="8" id="z7h-FK-THM"/>
+                                            <constraint firstItem="g4q-9n-ckN" firstAttribute="leading" secondItem="q9J-5F-jfh" secondAttribute="leading" constant="8" id="zFX-Fa-KlR"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -50,10 +78,11 @@
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="Tsb-wb-qVD" secondAttribute="trailing" id="4M7-Wm-Vtc"/>
                             <constraint firstItem="Tsb-wb-qVD" firstAttribute="width" secondItem="svH-Pt-448" secondAttribute="width" id="CG7-1t-Tjc"/>
                             <constraint firstItem="Tsb-wb-qVD" firstAttribute="centerY" secondItem="VUw-jc-0yf" secondAttribute="centerY" id="GGP-yK-zWg"/>
-                            <constraint firstItem="0XM-y9-sOw" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" constant="20" symbolic="YES" id="Tsc-yG-G1q"/>
+                            <constraint firstItem="A6p-89-0Bf" firstAttribute="height" secondItem="VUw-jc-0yf" secondAttribute="height" multiplier="0.5" id="M56-yG-Bgd"/>
+                            <constraint firstItem="A6p-89-0Bf" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="24" id="NRm-0X-Sec"/>
+                            <constraint firstItem="A6p-89-0Bf" firstAttribute="trailing" secondItem="VUw-jc-0yf" secondAttribute="trailing" constant="24" id="QfP-P5-JeB"/>
                             <constraint firstItem="Tsb-wb-qVD" firstAttribute="centerX" secondItem="VUw-jc-0yf" secondAttribute="centerX" id="Ucp-Ew-961"/>
-                            <constraint firstItem="0XM-y9-sOw" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="jWN-iV-94e"/>
-                            <constraint firstAttribute="trailing" secondItem="0XM-y9-sOw" secondAttribute="trailing" constant="20" symbolic="YES" id="tHV-ZD-HQj"/>
+                            <constraint firstItem="A6p-89-0Bf" firstAttribute="bottom" secondItem="VUw-jc-0yf" secondAttribute="bottom" constant="24" id="Zau-oo-aKq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VUw-jc-0yf"/>
                     </view>
@@ -61,7 +90,10 @@
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="Tsb-wb-qVD" id="1eh-1I-L0m"/>
-                        <outlet property="detailDescriptionLabel" destination="0XM-y9-sOw" id="deQ-Na-JPF"/>
+                        <outlet property="cardView" destination="q9J-5F-jfh" id="pPU-nE-K5Q"/>
+                        <outlet property="detailDescriptionLabel" destination="g4q-9n-ckN" id="aWH-H8-Hue"/>
+                        <outlet property="scroller" destination="A6p-89-0Bf" id="NVG-Kq-wGd"/>
+                        <outlet property="titleLabel" destination="nAr-8U-AuE" id="tsJ-Jn-wLg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
