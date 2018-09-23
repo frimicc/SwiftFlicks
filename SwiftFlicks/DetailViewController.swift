@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
 
@@ -18,6 +21,13 @@ class DetailViewController: UIViewController {
         if let detail = detailItem {
             if let label = detailDescriptionLabel {
                 label.text = detail.description
+            }
+            if let bgImageView = backgroundImageView {
+                if let bgURL = detail.backgroundURL {
+                    bgImageView.af_setImage(withURL: bgURL)
+                } else {
+                    bgImageView.image = Image(named: "NoPosterImage")
+                }
             }
         }
     }

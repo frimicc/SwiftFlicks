@@ -33,7 +33,7 @@ struct MovieModel {
         if let posterPath = dict["poster_path"] as? String {
             let fullPosterUrl = "https://image.tmdb.org/t/p/w45" + posterPath
             posterURL = URL(string: fullPosterUrl)
-            let fullBackgroundUrl = "https://image.tmdb.org/t/p/w342" + posterPath
+            let fullBackgroundUrl = "https://image.tmdb.org/t/p/w500" + posterPath
             backgroundURL = URL(string: fullBackgroundUrl)
         }
     }
