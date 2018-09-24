@@ -17,6 +17,11 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     
+    var detailItem: MovieModel? {
+        didSet {
+            configureView()
+        }
+    }
 
     func configureView() {
         // Update the user interface for the detail item.
@@ -44,14 +49,15 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+        
+        let swipeBack = UISwipeGestureRecognizer(target: self, action: #selector(didSwipeRight))
+        swipeBack.direction = .left
+        self.view.addGestureRecognizer(swipeBack)
     }
 
-    var detailItem: MovieModel? {
-        didSet {
-            configureView()
-        }
+    @objc func didSwipeRight(_ gesture: UIGestureRecognizer) {
+        navigationController?.popViewController(animated: true)
     }
-
 
 }
 
